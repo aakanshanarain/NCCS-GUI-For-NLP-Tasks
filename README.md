@@ -12,4 +12,4 @@ Virtual environment installations needed:
 simpletransformers: pip install simpletransformers
 torch: pip install torch
 
-To run the app, run `python app,py` from the terminal or any IDE.
+To run the app, run `python app.py` from the terminal or any IDE.
