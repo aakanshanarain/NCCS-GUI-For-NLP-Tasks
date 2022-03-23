@@ -9,7 +9,7 @@ import pickle
 
 train_df = pd.read_csv('/Users/aakansha/Desktop/NCCS NLP for Histology Reports/Datasets for Trials/train.csv')
 train_df['Combined Diagnosis'] = train_df['Diagnosis'] + train_df['Gross Description'] + train_df[
-    'Microscopic Description']
+    'Microscgopic Description']
 train_df = train_df[['Combined Diagnosis', 'Cancerous?']]
 
 # ### Pre-process data
