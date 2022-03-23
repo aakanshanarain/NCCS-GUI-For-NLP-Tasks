@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function onAccept() {
+      alert("Accepted!")
+      document.getElementById("accept-button").value
+      document.getElementById("form-for-accept").submit()
+    }
+
+    function onReject() {
+      alert("Rejected!")
+      document.getElementById("reject-button").value
+      document.getElementById("form-for-reject").submit()
+    }
+
+    function onBack() {
+      // alert("Back!")
+      document.getElementById("report-number-input").value-- //accesses form and gets number, deduct by 1
+      document.getElementById("form-for-row-number").submit()  //submits number from form
+    }
+    
+    function onNext() {
+      //alert("Next!")
+      document.getElementById("report-number-input").value++ //accesses form and gets number, add 1
+      document.getElementById("form-for-row-number").submit()  //submits number from form
+    }
+
+    function onSubmit() {
+      alert("Submitted Comment!")
+      document.getElementById("comments-given-input").value //accesses form and gets comments in textbox as string
+      document.getElementById("form-for-giving-comment").submit()  //submits number from form
+    }
+    
+  </script>
+  <style>
+    * {
+      font-size: 15px;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      box-sizing: border-box;
+    }
+
+    .body-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 50px;
+    }
+
+    .body-left-col {
+      width: 50%;
+      padding: 20px;
+    }
+
+    .report-number {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .report-number-input {
+      width: 20%;
+      height: 20%;
+      min-height: 50px;
+    }
+
+    .report-title,
+    .prediction-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .report-input {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid black;
+      width: 100%;
+      min-height: 400px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .body-right-col {
+      width: 35%;
+      height: 100%;
+      max-height: 900px;
+      padding: 5px;
+    }
+
+    .model-prediction {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid black;
+      width: 100%;
+      min-height: 50px;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .ground-truth {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid black;
+      width: 100%;
+      min-height: 50px;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .comments-given {
+      display: flex;
+      flex-direction: row;
+      border: 1px solid black;
+      width: 100%;
+      min-height: 50px;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    .comments-given-input {
+      width: 100%;
+      height: 20%;
+      min-height: 50px;
+    }
+
+    .buttons-row-1 {
+      margin: 10px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .accept-button{
+      background-color: lightgreen;
+      border: 1px solid black;
+      margin: 10px;
+      width: 90%;
+      height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .reject-button {
+      background-color: red;
+      border: 1px solid black;
+      margin: 10px;
+      width: 90%;
+      height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .accept-button:hover,
+    .reject-button:hover {
+      opacity: 0.8;
+    }
+
+    .buttons-row-2 {
+      margin: 10px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .back-button,
+    .next-button {
+      background-color: lightgrey;
+      border: 1px solid black;
+      margin: 10px;
+      width: 30%;
+      height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-button:hover,
+    .next-button:hover {
+      opacity: 0.8;
+    }
+
+    .comment-submit-button {
+      background-color: lightgrey;
+      border: 1px solid black;
+      margin: 10px;
+      width: 30%;
+      height: 30px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .comment-submit-button:hover {
+      opacity: 0.8;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="body-row">
+    <div class="body-left-col">
+      <form action="/cancerprediction" id= "form-for-row-number" method="post">
+      <h1 class="report-number">Report</h1>
+      <input class="report-number-input" name= "report-number-input" id= "report-number-input" type="text" value = {{row_number}}>
+      <h1 class="report-number">out of {{number_of_reports-1}}</h1>
+      </form>
+
+      <div class="buttons-row-2">
+        <input class="back-button" type="button" value="Back" onclick="onBack()">
+        <input class="next-button" type="button" value="Next" onclick="onNext()">
+      </div>
+      
+      <h1 class="report-title">report: {{data[row_number]["id"]}}</h1>
+      <div class="report-input">{{data[row_number]["Combined Diagnosis"]}}</div>
+      
+    </div>
+
+    <div class="body-right-col">
+      <h1 class="prediction-title">Prediction</h1>
+      <div class="model-prediction">
+        {{data[row_number]["Cancerous?"]}}
+      </div>
+
+      <h1 class="prediction-title">Accepted/Rejected</h1>
+      <div class="model-prediction">
+        {{data[row_number]["accepted-rejected"]}}
+      </div>
+
+      <div class="buttons-row-1">
+
+        <form action="/cancerprediction" id= "form-for-accept" method="post">
+        <!-- type of button is "submit" and not "button" so can access the value -->
+        <!-- value of button is row number, Use a button element instead of an input element so that the display value is diff from submitted value-->
+        <button class="accept-button" type="submit" value={{row_number}} onclick="onAccept()" name= "accept-button" id= "accept-button">Accept</button>
+        </form>
+
+        <form action="/cancerprediction" id= "form-for-reject" method="post">
+        <!-- type of buton is "submit" and not "button" so can access the value -->
+        <!-- value of button is row number, Use a button element instead of an input element so that the display value is diff from submitted value-->
+        <button class="reject-button" type="submit" value={{row_number}} onclick="onReject()" name= "reject-button" id= "reject-button">Reject</button>
+        </form>
+
+      </div>
+
+      <h1 class="prediction-title">Comments Given</h1>
+      <div class="comments-given">
+        {{data[row_number]["comments"]}}
+      </div>
+
+      <!-- place both text input and button in form tag so can access both values -->
+      <form action="/cancerprediction" id= "form-for-giving-comment" method="post">
+      <h1 class="prediction-title">Give a Comment</h1>
+      <input class="comments-given-input" name="comments-given-input" id="comments-given-input" type="text">
+
+      <div class="buttons-row-1">
+      <!-- type of buton is "submit" and not "button" so can access the value -->
+      <!-- value of button is row number, Use a button element instead of an input element so that the display value is diff from submitted value-->
+      <button class="comment-submit-button" type="submit" value={{row_number}} onclick="onSubmit()" name= "comment-submit-button" id= "comment-submit-button">Submit</button>
+      </div>
+      </form>
+
+      </div>
+      
+    </div>
+  </div>
+</body>
+
+</html>
