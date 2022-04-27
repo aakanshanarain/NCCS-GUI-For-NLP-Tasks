@@ -1,22 +1,466 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>GUI for ML Tasks</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet"/>
+        <style>
+            .header {
+                position: absolute;
+                height: 24px;
+                left: 85px;
+                top: 50px;
+
+                /* h6 */
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                letter-spacing: 0.2px;
+
+                /* primary-text-color */
+                color: #FC724D;
+            }
+
+            .header2 {
+                position: absolute;
+                width: 841px;
+                height: 50px;
+                left: 85px;
+                top: 99px;
+
+                /* h2 */
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 40px;
+                line-height: 50px;
+                /* identical to box height, or 125% */
+                letter-spacing: 0.2px;
+
+                /* text-color */
+                color: #252B42;
+            }
+
+            .subheader {
+                position: absolute;
+                width: 684px;
+                height: 40px;
+                left: 89px;
+                top: 166px;
+
+                /* paragraph */
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                /* or 143% */
+                letter-spacing: 0.2px;
+
+                /* second-text-color */
+                color: #737373;
+                }
+
+                .model1{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0px;
+
+                position: absolute;
+                width: 238px;
+                height: 426px;
+                left: calc(50% - 238px/2 - 271px);
+                top: 241px;
+
+                background: #FFE4C4;
+                /* accentued-drop-shadow */
+                box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+                border-radius: 10px;
+
+                /* Inside auto layout */
+                flex: none;
+                order: 0;
+                align-self: stretch;
+                flex-grow: 0;
+                margin: 0px 0px;
+            }
+
+            .title {
+                position: absolute;
+                width: 144px;
+                height: 48px;
+                left: 40px;
+                top: 131px;
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* or 150% */
+                letter-spacing: 0.1px;
+
+                /* text-color */
+                color: #252B42;
+            }
+
+            .line {
+                position: absolute;
+                width: 50px;
+                height: 2px;
+                left: 40px;
+                top: 199px;
+
+                /* danger-color */
+                background: #E74040;
+            }
+
+            .description1 {
+                position: absolute;
+                width: 158px;
+                height: 80px;
+                left: 40px;
+                top: 221px;
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                /* or 143% */
+                letter-spacing: 0.2px;
+
+                /* second-text-color */
+                color: #737373;
+            }
+
+            .inputbutton1 {
+                position: absolute;
+                width: 160px;
+                height: 30px;
+                left: 40px;
+                top: 315px;
+
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 10px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 30px;
+                /* identical to box height, or 143% */
+                letter-spacing: 0.2px;
+
+                color: #000000;
+            }
+
+            .inputbutton2 {
+                position: absolute;
+                width: 160px;
+                height: 30px;
+                left: 40px;
+                top: 315px;
+
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 10px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 30px;
+                /* identical to box height, or 143% */
+                letter-spacing: 0.2px;
+
+                color: #000000;
+            }
+
+            .inputbutton3 {
+                position: absolute;
+                width: 160px;
+                height: 30px;
+                left: 40px;
+                top: 315px;
+
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 10px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 30px;
+                /* identical to box height, or 143% */
+                letter-spacing: 0.2px;
+
+                color: #000000;
+            }
+
+            input[type="file"] {
+                opacity: 0;
+                z-index: -1;
+                position: absolute;
+            }
+
+            .runbutton {
+                position: absolute;
+                width: 160px;
+                height: 30px;
+                left: 40px;
+                top: 359px;
+
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 10px;
+
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 30px;
+                /* identical to box height, or 143% */
+                letter-spacing: 0.2px;
+
+                color: #000000;
+            }
+
+
+            button {
+                opacity: 0;
+                z-index: -1;
+                position: absolute;
+            }
+
+            .model2 {
+                position: absolute;
+                width: 238px;
+                height: 426px;
+                left: calc(50% - 238px/2);
+                top: 241px;
+
+
+                background: #FFE4C4;
+                /* accentued-drop-shadow */
+                box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+                border-radius: 10px;
+            }
+
+            .model3 {
+                position: absolute;
+                width: 238px;
+                height: 426px;
+                left: calc(50% - 238px/2 + 271px);
+                top: 241px;
+
+                background: #FFE4C4;
+                /* accentued-drop-shadow */
+                box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+                border-radius: 10px;
+            }
+
+            .bottomtext {
+                position: absolute;
+                width: 870px;
+                height: 60px;
+                left: 279px;
+                top: 702px;
+
+                /* paragraph */
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                /* or 143% */
+                letter-spacing: 0.2px;
+
+                /* second-text-color */
+                color: #737373;
+            }
+
+            .topellipse {
+                position: absolute;
+                width: 468px;
+                height: 425px;
+                left: -166px;
+                top: -138px;
+
+                background: #FFE4C4;
+                border-radius:100%;
+                z-index:-1;
+            }
+
+            .bottomellipse {
+                position: absolute;
+                width: 430px;
+                height: 425px;
+                right: -200px;
+                bottom: -138px;
+
+                background: #FFE4C4;
+                border-radius:100%;
+                z-index:-1;
+            }
+
+            .iconcontainer {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 22px 19px;
+
+                position: absolute;
+                width: 50px;
+                height: 40px;
+                left: 40px;
+                top: 35px;
+
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 10px;
+            }
+
+            .imgcontainer1 {
+                position: absolute;
+                left: 58.14px;
+                right: 21.43px;
+                top: 50.95px;
+                bottom: 23.68px;
+            }
+
+            .imgcontainer2 {
+                position: absolute;
+                left: 58.14px;
+                right: 21.43px;
+                top: 50.95px;
+                bottom: 23.68px;
+            }
+
+            .imgcontainer3 {
+                position: absolute;
+                left: 58.14px;
+                right: 21.43px;
+                top: 50.95px;
+                bottom: 23.68px;
+            }
+
+            .title2 {
+                position: absolute;
+                width: 160px;
+                height: 48px;
+                left: 40px;
+                top: 131px;
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* or 150% */
+                letter-spacing: 0.1px;
+
+                /* text-color */
+                color: #252B42;
+            }
+        </style>
+        <title>Machine Learning for Histology Reports</title>
     </head>
 
     <body>
-        <form name="form", method="POST", style="text-align: center;", enctype=multipart/form-data>
-            <br>
-            <input type="file" name="model1" accept=".csv", placeholder="Enter report csv (model1)" value = "model1"/>
-            <br><br>
-            <button name ="model1">Run Model 1</button>
-        </form>
-        <form name="form", method="POST", style="text-align: center;", enctype=multipart/form-data>
-            <br>
-            <input type="file" name="model2" accept=".csv", placeholder="Enter report csv (model2)" value = "model2"/>
-            <br><br>
-            <button name ="model2">Run Model 2</button>
-        </form>
-    </body>
+        <div class="header">
+            National Cancer Centre Singapore
+        </div>
+        <div class="topellipse"></div>
+        <div class="bottomellipse"></div>
+        <div class="header2">
+            Machine Learning for Histology Reports
+        </div>
+        <div class="subheader">
+            Leverage on the predictive power of machine learning models to make predictions
+            on histology reports. <b>Upload a csv</b> file to the model you want to run, and then <b>click run model</b>.
+        </div>
 
+        <div class="container">
+
+
+        </div>
+        <div class="model1">
+            <div class="iconcontainer"></div>
+            <div class="imgcontainer1"><img src="{{ url_for('static', filename='model1.png') }}" width="53px" height="50px"/>
+            </div>
+            <div class="title">Malignant tumor prediction</div>
+            <div class="line"></div>
+            <div class="description1">This model predicts whether a reported tumor is malignant or benign.</div>
+            <form name="form" , method="POST" , style="text-align: center;" , enctype=multipart/form-data>
+                <br>
+                <label class="inputbutton1" for="input-button-1">Upload a csv file</label>
+                <input id="input-button-1" type="file" name="model1" accept=".csv" , value="model1">
+                <br><br>
+                <label class="runbutton">
+                    <button name="model1"></button>Run model
+                </label>
+            </form>
+            <script>
+                $('#input-button-1').on('change', function(){
+                files = $(this)[0].files; name = ''; for(var i = 0; i < files.length; i++){
+                name += '\"Uploaded: ' + files[i].name + '\"' + (i != files.length-1 ? ", " : ""); }
+                $(".inputbutton1").html(name); });
+            </script>
+        </div>
+
+        <div class="model2">
+            <div class="iconcontainer"></div>
+            <div class="imgcontainer2"><img src="{{ url_for('static', filename='model2.png') }}" width="53px" height="55px"/>
+            </div>
+            <div class="title2">Primary site of cancer prediction</div>
+            <div class="line"></div>
+            <div class="description1">This model predicts the primary site(s) of cancer from the reports.</div>
+            <form name="form" , method="POST" , style="text-align: center;" , enctype=multipart/form-data>
+                <br>
+                <label class="inputbutton2" for="input-button-2"> Upload a csv file</label>
+                <input id="input-button-2" type="file" name="model2" accept=".csv" , value="model2"/>
+                <br><br>
+                <label class="runbutton">
+                    <button name="model2"></button>Run model
+                </label>
+            </form>
+            <script>
+                $('#input-button-2').on('change', function(){
+                files = $(this)[0].files; name = ''; for(var i = 0; i < files.length; i++){
+                name += '\"Uploaded: ' + files[i].name + '\"' + (i != files.length-1 ? ", " : ""); }
+                $(".inputbutton2").html(name); });
+            </script>
+        </div>
+        <div class="model3">
+            <div class="iconcontainer"></div>
+            <div class="imgcontainer3"><img src="{{ url_for('static', filename='model3.png') }}" width="53px" height="50px"/>
+            </div>
+            <div class="title">Grade of cancer prediction</div>
+            <div class="line"></div>
+            <div class="description1">This model predicts the grade of the cancer present in the reports.</div>
+            <form name="form" , method="POST" , style="text-align: center;" , enctype=multipart/form-data>
+                <br>
+                <label class="inputbutton3" for="input-button-3">Upload a csv file</label>
+                <input id="input-button-3" type="file" name="model3" accept=".csv" , value="model3"/>
+                <br><br>
+                <label class="runbutton">
+                    <button name="model3"></button>Run model
+                </label>
+            </form>
+            <script>
+                $('#input-button-3').on('change', function(){
+                files = $(this)[0].files; name = ''; for(var i = 0; i < files.length; i++){
+                name += '\"Uploaded: ' + files[i].name + '\"' + (i != files.length-1 ? ", " : ""); }
+                $(".inputbutton3").html(name); });
+            </script>
+        </div>
+        <div class="bottomtext">
+            <b>Important:</b> After selecting the model, it may take a while, depending on the size
+            of the csv file, for the model to run. The results page will load once the model is
+            done predicting!
+        </div>
+    </body>
 </html>
+
