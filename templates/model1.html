@@ -1,280 +1,510 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script>
-    function onAccept() {
-      alert("Accepted!")
-      document.getElementById("accept-button").value
-      document.getElementById("form-for-accept").submit()
-    }
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet"/>
+    <script>
+        function onAccept() {
+          alert("Accepted!")
+          document.getElementById("accept-button").value
+          document.getElementById("form-for-accept").submit()
+        }
 
-    function onReject() {
-      alert("Rejected!")
-      document.getElementById("reject-button").value
-      document.getElementById("form-for-reject").submit()
-    }
+        function onReject() {
+          alert("Rejected!")
+          document.getElementById("reject-button").value
+          document.getElementById("form-for-reject").submit()
+        }
 
-    function onBack() {
-      // alert("Back!")
-      document.getElementById("report-number-input").value-- //accesses form and gets number, deduct by 1
-      document.getElementById("form-for-row-number").submit()  //submits number from form
-    }
-    
-    function onNext() {
-      //alert("Next!")
-      document.getElementById("report-number-input").value++ //accesses form and gets number, add 1
-      document.getElementById("form-for-row-number").submit()  //submits number from form
-    }
+        function onBack() {
+          // alert("Back!")
+          document.getElementById("report-number-input").value-- //accesses form and gets number, deduct by 1
+          document.getElementById("form-for-row-number").submit()  //submits number from form
+        }
 
-    function onSubmit() {
-      alert("Submitted Comment!")
-      document.getElementById("comments-given-input").value //accesses form and gets comments in textbox as string
-      document.getElementById("form-for-giving-comment").submit()  //submits number from form
-    }
-    
-  </script>
-  <style>
-    * {
-      font-size: 15px;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      box-sizing: border-box;
-    }
+        function onNext() {
+          //alert("Next!")
+          document.getElementById("report-number-input").value++ //accesses form and gets number, add 1
+          document.getElementById("form-for-row-number").submit()  //submits number from form
+        }
 
-    .body-row {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      padding: 50px;
-    }
+        function onSubmit() {
+          alert("Submitted Comment!")
+          document.getElementById("comments-given-input").value //accesses form and gets comments in textbox as string
+          document.getElementById("form-for-giving-comment").submit()  //submits number from form
+        }
 
-    .body-left-col {
-      width: 50%;
-      padding: 20px;
-    }
+    </script>
+    <style>
+        .header {
+                position: absolute;
+                height: 24px;
+                left: 85px;
+                top: 50px;
 
-    .report-number {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
+                /* h6 */
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 24px;
+                /* identical to box height, or 171% */
+                letter-spacing: 0.2px;
 
-    .report-number-input {
-      width: 20%;
-      height: 20%;
-      min-height: 50px;
-    }
+                /* primary-text-color */
+                color: #FC724D;
+            }
 
-    .report-title,
-    .prediction-title {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
+            .header2 {
+                position: absolute;
+                width: 841px;
+                height: 50px;
+                left: 85px;
+                top: 99px;
 
-    .report-input {
-      display: flex;
-      flex-direction: row;
-      border: 1px solid black;
-      width: 100%;
-      min-height: 400px;
-      justify-content: center;
-      align-items: center;
-    }
+                /* h2 */
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 40px;
+                line-height: 50px;
+                /* identical to box height, or 125% */
+                letter-spacing: 0.2px;
 
-    .body-right-col {
-      width: 35%;
-      height: 100%;
-      max-height: 900px;
-      padding: 5px;
-    }
+                /* text-color */
+                color: #252B42;
+            }
 
-    .model-prediction {
-      display: flex;
-      flex-direction: row;
-      border: 1px solid black;
-      width: 100%;
-      min-height: 50px;
-      justify-content: center;
-      align-items: center;
-      margin: 15px 0;
-    }
+            .reportheader {
+                position: absolute;
+                width: 58px;
+                height: 24px;
+                left: 92px;
+                top: 184px;
 
-    .ground-truth {
-      display: flex;
-      flex-direction: row;
-      border: 1px solid black;
-      width: 100%;
-      min-height: 50px;
-      justify-content: center;
-      align-items: center;
-      margin: 15px 0;
-    }
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.1px;
 
-    .comments-given {
-      display: flex;
-      flex-direction: row;
-      border: 1px solid black;
-      width: 100%;
-      min-height: 50px;
-      justify-content: center;
-      align-items: center;
-      margin: 10px 0;
-    }
+                /* text-color */
+                color: #252B42;
+            }
 
-    .comments-given-input {
-      width: 100%;
-      height: 20%;
-      min-height: 50px;
-    }
+            .reportnumber {
+                position: absolute;
+                width: 52px;
+                height: 42px;
+                left: 92px;
+                top: 219px;
 
-    .buttons-row-1 {
-      margin: 10px 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
+                background: #E7E7E7;
+                border: 0.5px solid #000000;
+                border-radius: 10px;
+                box-sizing: border-box;
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 42px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.1px;
 
-    .accept-button{
-      background-color: lightgreen;
-      border: 1px solid black;
-      margin: 10px;
-      width: 90%;
-      height: 30px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+                /* text-color */
+                color: #252B42;
+                text-align: center;
+            }
 
-    .reject-button {
-      background-color: red;
-      border: 1px solid black;
-      margin: 10px;
-      width: 90%;
-      height: 30px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+            .subtext {
+                position: absolute;
+                width: 400px;
+                height: 24px;
+                left: 92px;
+                top: 282px;
 
-    .accept-button:hover,
-    .reject-button:hover {
-      opacity: 0.8;
-    }
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.1px;
 
-    .buttons-row-2 {
-      margin: 10px 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
+                /* text-color */
+                color: #252B42;
 
-    .back-button,
-    .next-button {
-      background-color: lightgrey;
-      border: 1px solid black;
-      margin: 10px;
-      width: 30%;
-      height: 30px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+            }
 
-    .back-button:hover,
-    .next-button:hover {
-      opacity: 0.8;
-    }
+            .backbutton {
+                position: absolute;
+                width: 150px;
+                height: 42px;
+                left: 207px;
+                top: 343px;
 
-    .comment-submit-button {
-      background-color: lightgrey;
-      border: 1px solid black;
-      margin: 10px;
-      width: 30%;
-      height: 30px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+                background: #FFE4C4;
+                border-radius: 10px;
 
-    .comment-submit-button:hover {
-      opacity: 0.8;
-    }
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 42px;
+                text-align: center;
 
-  </style>
+                /* identical to box height */
+
+                color: #000000;
+            }
+
+            .nextbutton {
+                position: absolute;
+                width: 150px;
+                height: 42px;
+                left: 400px;
+                top: 343px;
+
+                background: #FFE4C4;
+                border-radius: 10px;
+
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 42px;
+                /* identical to box height */
+                text-align: center;
+                color: #000000;
+            }
+
+            button {
+                opacity: 0;
+                z-index: -1;
+                position: absolute;
+            }
+
+            .topellipse {
+                position: absolute;
+                width: 350px;
+                height: 450px;
+                left: 0px;
+                top: -138px;
+
+                background: #FFE4C4;
+                border-radius: 0 0 350px 0;
+                z-index:-1;
+            }
+
+            .bottomellipse {
+                position: absolute;
+                width: 350px;
+                height: 350px;
+                right: 0px;
+                bottom: -50px;
+
+                background: #FFE4C4;
+                border-radius: 350px 0 0 0;
+                z-index: -1;
+            }
+
+            .reportbox {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 35px 40px;
+
+                position: absolute;
+                width: 664px;
+                min-height: 336px;
+                left: calc(50% - 930px/2 - 170px);
+                top: 410px;
+
+                background: #FFFFFF;
+                border: 1px solid #E5E5E5;
+                box-sizing: border-box;
+                /* accentued-drop-shadow */
+                box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+                border-radius: 10px;
+
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 20px;
+                /* or 143% */
+                letter-spacing: 0.2px;
+
+                /* second-text-color */
+                color: #737373;
+            }
+
+            .predictionheader {
+                position: absolute;
+                width: 89px;
+                height: 24px;
+                left: 1047px;
+                top: 203px;
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.1px;
+
+                /* text-color */
+                color: #252B42;
+            }
+
+            .predictionbox {
+                position: absolute;
+                width: 150px;
+                height: 42px;
+                left: 1017px;
+                top: 243px;
+
+                background: #E7E7E7;
+                border-radius: 10px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 42px;
+                /* identical to box height */
+
+                color: #000000;
+                text-align: center;
+            }
+
+            .acceptrejectheader {
+                position: absolute;
+                width: 200px;
+                height: 24px;
+                left: 1007px;
+                top: 309px;
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.1px;
+
+                /* text-color */
+                color: #252B42;
+            }
+
+            .acceptrejectbox {
+                position: absolute;
+                width: 150px;
+                height: 42px;
+                left: 1017px;
+                top: 349px;
+
+                background: #E7E7E7;
+                border-radius: 10px;
+
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 42px;
+                /* identical to box height */
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .accept {
+                position: absolute;
+                width: 100px;
+                height: 41px;
+                left: 980px;
+                top: 415px;
+
+                background: rgba(231, 64, 64, 0.5);
+                border-radius: 10px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 41px;
+                /* identical to box height */
+
+                color: #000000;
+                text-align: center;
+            }
+
+            .reject {
+                position: absolute;
+                width: 100px;
+                height: 41px;
+                left: 1103px;
+                top: 415px;
+
+                background: rgba(67, 231, 84, 0.5);
+                border-radius: 10px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 41px;
+                /* identical to box height */
+
+                color: #000000;
+                text-align: center;
+            }
+
+            .commentheader {
+                position: absolute;
+                width: 139px;
+                height: 24px;
+                left: 1022px;
+                top: 485px;
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.1px;
+
+                /* text-color */
+                color: #252B42;
+            }
+
+            .commentbox {
+                position: absolute;
+                width: 223px;
+                height: 42px;
+                left: 980px;
+                top: 525px;
+
+                background: #FFFFFF;
+                border: 0.5px solid #000000;
+                box-sizing: border-box;
+                border-radius: 10px;
+            }
+
+            .commentsubmit {
+                position: absolute;
+                width: 150px;
+                height: 42px;
+                left: 1017px;
+                top: 584px;
+
+                background: #FFE4C4;
+                border-radius: 10px;
+
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 42px;
+                /* identical to box height */
+                text-align: center;
+
+                color: #000000;
+            }
+
+            .commentgivenheader {
+                position: absolute;
+                width: 145px;
+                height: 24px;
+                left: 1022px;
+                top: 653px;
+
+                font-family: 'Montserrat';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                /* identical to box height, or 150% */
+                letter-spacing: 0.1px;
+
+                /* text-color */
+                color: #252B42;
+            }
+
+            .commentsgiven {
+                position: absolute;
+                width: 223px;
+                height: 42px;
+                left: 980px;
+                top: 693px;
+
+                background: #E7E7E7;
+                border-radius: 10px;
+
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 42px;
+                /* identical to box height */
+
+                color: #000000;
+                text-align: center;
+
+            }
+    </style>
 </head>
 
 <body>
-  <div class="body-row">
-    <div class="body-left-col">
-      <form action="/cancerprediction" id= "form-for-row-number" method="post">
-      <h1 class="report-number">Report</h1>
-      <input class="report-number-input" name= "report-number-input" id= "report-number-input" type="text" value = {{row_number}}>
-      <h1 class="report-number">out of {{number_of_reports-1}}</h1>
-      </form>
 
-      <div class="buttons-row-2">
-        <input class="back-button" type="button" value="Back" onclick="onBack()">
-        <input class="next-button" type="button" value="Next" onclick="onNext()">
-      </div>
-      
-      <h1 class="report-title">report: {{data[row_number]["id"]}}</h1>
-      <div class="report-input">{{data[row_number]["Combined Diagnosis"]}}</div>
-      
-    </div>
+<div class="header">National Cancer Center Singapore</div>
+<div class="topellipse"></div>
+<div class="header2">Machine Learning for Histology Reports</div>
+<div class="reportheader">Report</div>
+<form action="/cancerprediction" id= "form-for-row-number" method="post">
+    <input class="reportnumber" name= "report-number-input" id= "report-number-input" type="text" value = {{row_number}}>
+</form>
+<div class="subtext">out of {{number_of_reports-1}}</div>
+<label class="backbutton">
+    <button onclick="onBack()"></button>Back
+</label>
+<label class="nextbutton">
+    <button onclick="onNext()"></button>Next
+</label>
+<div class="reportbox">{{data[row_number]["Combined Diagnosis"]}}</div>
+<div class="predictionheader">Prediction</div>
+<div class="predictionbox">{{data[row_number]["Cancerous?"]}}</div>
+<div class="acceptrejectheader">Accepted / Rejected</div>
+<div class="acceptrejectbox">{{data[row_number]["accepted-rejected"]}}</div>
+<form action="/cancerprediction" id= "form-for-accept" method="post">
+    <label class="accept">
+    <button class="accept-button" type="submit" value={{row_number}} onclick="onAccept()"
+            name= "accept-button" id= "accept-button"></button>Accept
+    </label>
+</form>
+<form action="/cancerprediction" id= "form-for-reject" method="post">
+    <label class="reject">
+    <button class="reject-button" type="submit" value={{row_number}} onclick="onReject()"
+            name= "reject-button" id= "reject-button"></button>Reject
+        </label>
+</form>
+<div class="commentheader">Give a comment</div>
+<form action="/cancerprediction" id= "form-for-giving-comment" method="post">
+    <input class="commentbox" name="comments-given-input" id="comments-given-input" type="text">
+    <label class="commentsubmit">
+    <button type="submit" value={{row_number}} onclick="onSubmit()" name= "comment-submit-button" id= "comment-submit-button"></button>Submit
+    </label>
+</form>
+<div class="commentgivenheader">Comments given</div>
+<div class="commentsgiven">{{data[row_number]["comments"]}}</div>
 
-    <div class="body-right-col">
-      <h1 class="prediction-title">Prediction</h1>
-      <div class="model-prediction">
-        {{data[row_number]["Cancerous?"]}}
-      </div>
 
-      <h1 class="prediction-title">Accepted/Rejected</h1>
-      <div class="model-prediction">
-        {{data[row_number]["accepted-rejected"]}}
-      </div>
-
-      <div class="buttons-row-1">
-
-        <form action="/cancerprediction" id= "form-for-accept" method="post">
-        <!-- type of button is "submit" and not "button" so can access the value -->
-        <!-- value of button is row number, Use a button element instead of an input element so that the display value is diff from submitted value-->
-        <button class="accept-button" type="submit" value={{row_number}} onclick="onAccept()" name= "accept-button" id= "accept-button">Accept</button>
-        </form>
-
-        <form action="/cancerprediction" id= "form-for-reject" method="post">
-        <!-- type of buton is "submit" and not "button" so can access the value -->
-        <!-- value of button is row number, Use a button element instead of an input element so that the display value is diff from submitted value-->
-        <button class="reject-button" type="submit" value={{row_number}} onclick="onReject()" name= "reject-button" id= "reject-button">Reject</button>
-        </form>
-
-      </div>
-
-      <h1 class="prediction-title">Comments Given</h1>
-      <div class="comments-given">
-        {{data[row_number]["comments"]}}
-      </div>
-
-      <!-- place both text input and button in form tag so can access both values -->
-      <form action="/cancerprediction" id= "form-for-giving-comment" method="post">
-      <h1 class="prediction-title">Give a Comment</h1>
-      <input class="comments-given-input" name="comments-given-input" id="comments-given-input" type="text">
-
-      <div class="buttons-row-1">
-      <!-- type of buton is "submit" and not "button" so can access the value -->
-      <!-- value of button is row number, Use a button element instead of an input element so that the display value is diff from submitted value-->
-      <button class="comment-submit-button" type="submit" value={{row_number}} onclick="onSubmit()" name= "comment-submit-button" id= "comment-submit-button">Submit</button>
-      </div>
-      </form>
-
-      </div>
-      
-    </div>
-  </div>
 </body>
-
 </html>
