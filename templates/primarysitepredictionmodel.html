@@ -333,7 +333,7 @@
                 left: 980px;
                 top: 415px;
 
-                background: rgba(231, 64, 64, 0.5);
+                background: rgba(67, 231, 84, 0.5);
                 border-radius: 10px;
                 font-family: 'Inter';
                 font-style: normal;
@@ -353,7 +353,7 @@
                 left: 1103px;
                 top: 415px;
 
-                background: rgba(67, 231, 84, 0.5);
+                background: rgba(231, 64, 64, 0.5);
                 border-radius: 10px;
                 font-family: 'Inter';
                 font-style: normal;
@@ -468,7 +468,7 @@
 <div class="topellipse"></div>
 <div class="header2">Machine Learning for Histology Reports</div>
 <div class="reportheader">Report</div>
-<form action="/cancerprediction" id= "form-for-row-number" method="post">
+<form action="/primarysitedetection" id= "form-for-row-number" method="post">
     <input class="reportnumber" name= "report-number-input" id= "report-number-input" type="text" value = {{row_number}}>
 </form>
 <div class="subtext">out of {{number_of_reports-1}}</div>
@@ -480,23 +480,23 @@
 </label>
 <div class="reportbox">{{data[row_number]["Combined Diagnosis"]}}</div>
 <div class="predictionheader">Prediction</div>
-<div class="predictionbox">{{data[row_number]["Cancerous?"]}}</div>
+<div class="predictionbox">{{data[row_number]["Predicted Primary Site(s)"]}}</div>
 <div class="acceptrejectheader">Accepted / Rejected</div>
 <div class="acceptrejectbox">{{data[row_number]["accepted-rejected"]}}</div>
-<form action="/cancerprediction" id= "form-for-accept" method="post">
+<form action="/primarysitedetection" id= "form-for-accept" method="post">
     <label class="accept">
     <button class="accept-button" type="submit" value={{row_number}} onclick="onAccept()"
             name= "accept-button" id= "accept-button"></button>Accept
     </label>
 </form>
-<form action="/cancerprediction" id= "form-for-reject" method="post">
+<form action="/primarysitedetection" id= "form-for-reject" method="post">
     <label class="reject">
     <button class="reject-button" type="submit" value={{row_number}} onclick="onReject()"
             name= "reject-button" id= "reject-button"></button>Reject
         </label>
 </form>
 <div class="commentheader">Give a comment</div>
-<form action="/cancerprediction" id= "form-for-giving-comment" method="post">
+<form action="/primarysitedetection" id= "form-for-giving-comment" method="post">
     <input class="commentbox" name="comments-given-input" id="comments-given-input" type="text">
     <label class="commentsubmit">
     <button type="submit" value={{row_number}} onclick="onSubmit()" name= "comment-submit-button" id= "comment-submit-button"></button>Submit
@@ -504,7 +504,5 @@
 </form>
 <div class="commentgivenheader">Comments given</div>
 <div class="commentsgiven">{{data[row_number]["comments"]}}</div>
-
-
 </body>
 </html>
